@@ -39,6 +39,14 @@ export default React.createClass({
     }
   },
 
+  getStartDate () {
+    return this.state.startDate.format('L');
+  },
+
+  getEndDate () {
+    return this.state.endDate.format('L');
+  },
+
   render () {
     return(
       <fieldset>

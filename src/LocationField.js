@@ -20,6 +20,14 @@ export default React.createClass({
     });
   },
 
+  getLocation () {
+    if(this.state.searchBy === this.SEARCH_BY_OPTIONS.LOCATION_NAME) {
+      return this.refs.stateField.state.location.value;
+    } else {
+      return this.refs.coordinatesField.state.coordinates;
+    }
+  },
+
   render () {
     return(
       <div>
@@ -32,10 +40,10 @@ export default React.createClass({
         </fieldset>
         <fieldset>
           {this.state.searchBy === this.SEARCH_BY_OPTIONS.LOCATION_NAME &&
-            <StateField />
+            <StateField ref="stateField" />
           }
 	  {this.state.searchBy === this.SEARCH_BY_OPTIONS.COORDINATES &&
-	    <CoordinatesField />
+	    <CoordinatesField ref="coordinatesField" />
 	  }
         </fieldset>
       </div>
