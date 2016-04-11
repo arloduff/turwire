@@ -1,0 +1,11 @@
+{
+  "port": 9000,
+  "verbose": true,
+  "hosts": [{
+    "hostnames": ["*"],
+    "routes": {
+      "/": "dist/"
+    }
+  }]
+}
+

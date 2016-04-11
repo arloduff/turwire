@@ -1,0 +1,55 @@
+{
+  "name": "turwire",
+  "version": "1.0.0",
+  "description": "Search integration with HotWire cars.",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "car",
+    "search"
+  ],
+  "author": "Arlo Duff",
+  "license": "ISC",
+  "scripts": {
+    "start": "node_modules/proxit/server.js",
+    "clean": "rm -rf build && rm -rf dist"
+  },
+  "babel": {
+    "presets": ["es2015", "react"]
+  },
+  "browserify": {
+    "transform": [
+      "browserify-shim",
+      "babelify"
+     ]
+  },
+  "browserify-shim": {
+    "./node_modules/jquery/dist/jquery.js": {"exports": "jquery"},
+    "./node_modules/react/dist/react.js": {"exports": "react"},
+    "./node_modules/react-dom/dist-react-dom.js": {"exports": "react-dom"},
+    "./node_modules/react-select/dist/react-select.js": {"exports": "react-select"}
+  },
+  "dependencies": {
+    "react": "~15.0.1",
+    "react-dom": "~15.0.1",
+    "react-select": "1.0.0-beta12",
+    "jquery": "~2.2.3"
+  },
+  "devDependencies": {
+     "grunt": ">=0.4.2",
+     "grunt-contrib-copy": "~1.0.0",
+     "grunt-contrib-concat": "latest",
+     "grunt-contrib-jshint-jsx": "~0.10.4",
+     "grunt-contrib-uglify": "latest",
+     "grunt-contrib-cssmin": "~1.0.1",
+     "grunt-sass": "~1.1.0",
+     "babelify": "~7.2.0",
+     "babel-preset-es2015": "latest",
+     "babel-preset-react": "latest",
+     "grunt-browserify": "~5.0.0",
+     "browserify-shim": "~3.8.12",
+     "proxit": "~0.6.4"
+  }
+}
