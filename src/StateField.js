@@ -81,12 +81,15 @@ export default React.createClass({
     let options = this.US_STATE_NAMES.map(this.convertUsStateNameToStateOption);
 
     return(
-      <Select
-	name="location-field"
-	className="location-field"
-	value={this.state.location}
-	options={options} 
-	onChange={this.handleLocationChange} />
+      <div>
+	<legend> Select a state </legend>
+	<Select
+	  name="location-field"
+	  className="location-field"
+	  value={this.state.location}
+	  options={options} 
+	  onChange={this.handleLocationChange} />
+      </div>
     );
   }
 });

@@ -1,5 +1,6 @@
 import React from 'react';
 import StateField from './StateField';
+import CoordinatesField from './CoordinatesField';
 
 export default React.createClass({
   SEARCH_BY_OPTIONS: {
@@ -14,8 +15,6 @@ export default React.createClass({
   },
 
   handleChangeSearchBy (newSearchBySelection) {
-    console.log("newSearchByButton", newSearchBySelection);
-    console.log("choice", newSearchBySelection.target.value);
     this.setState({
       searchBy: parseInt(newSearchBySelection.target.value)
     });
@@ -35,6 +34,9 @@ export default React.createClass({
           {this.state.searchBy === this.SEARCH_BY_OPTIONS.LOCATION_NAME &&
             <StateField />
           }
+	  {this.state.searchBy === this.SEARCH_BY_OPTIONS.COORDINATES &&
+	    <CoordinatesField />
+	  }
         </fieldset>
       </div>
     );
