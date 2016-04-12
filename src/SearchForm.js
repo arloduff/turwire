@@ -1,5 +1,4 @@
 import React from 'react';
-import { Function } from 'react-prop-types';
 import $ from 'jquery';
 import X2Js from 'x2js';
 import LocationField from './LocationField';
@@ -9,7 +8,7 @@ export default React.createClass({
   API_URL: '/v1/search/car',
 
   propTypes: {
-    onSearchComplete: Function
+    onSearchComplete: React.PropTypes.Function
   },
 
   handleSearchClick (e) {
@@ -21,8 +20,8 @@ export default React.createClass({
       dest: this.refs.locationField.getLocation(),
       startdate: this.refs.dateField.getStartDate(),
       enddate: this.refs.dateField.getEndDate(),
-      pickuptime: '00:00',
-      dropofftime: '24:00'
+      pickuptime: this.refs.dateField.getPickupTime(),
+      dropofftime: this.refs.dateField.getDropoffTime()
     }
     
     $.get(this.API_URL, options)
