@@ -1,11 +1,11 @@
 import $ from 'jquery';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import SearchForm from './SearchForm';
+import Main from './Main';
 
 console.log("Render");
 console.log("ReactDOM", ReactDOM);
 $(document).ready(function () {
-  ReactDOM.render(<SearchForm />, document.getElementById('search-form'));
+  ReactDOM.render(<Main />, document.getElementById('main'));
 });
 

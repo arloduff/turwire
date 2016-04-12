@@ -34,9 +34,9 @@ export default React.createClass({
         <fieldset>
           <legend> Search by... </legend>
           <label> Placename  </label>
-          <input type="radio" name="searchBy" value={this.SEARCH_BY_OPTIONS.LOCATION_NAME} onClick={this.handleChangeSearchBy} />
+          <input type="radio" name="searchBy" value={this.SEARCH_BY_OPTIONS.LOCATION_NAME} checked={this.state.searchBy === this.SEARCH_BY_OPTIONS.LOCATION_NAME} onClick={this.handleChangeSearchBy} />
           <label> Geographic coordinates  </label>
-          <input type="radio" name="searchBy" value={this.SEARCH_BY_OPTIONS.COORDINATES} onClick={this.handleChangeSearchBy} />
+          <input type="radio" name="searchBy" value={this.SEARCH_BY_OPTIONS.COORDINATES} checked={this.state.searchBy === this.SEARCH_BY_OPTIONS.COORDINATES} onClick={this.handleChangeSearchBy} />
         </fieldset>
         <fieldset>
           {this.state.searchBy === this.SEARCH_BY_OPTIONS.LOCATION_NAME &&

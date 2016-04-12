@@ -1,18 +1,39 @@
 import React from 'react';
+import { Function } from 'react-prop-types';
+import $ from 'jquery';
+import X2Js from 'x2js';
 import LocationField from './LocationField';
 import DateRangeField from './DateRangeField';
 
 export default React.createClass({
+  API_URL: '/v1/search/car',
+
+  propTypes: {
+    onSearchComplete: Function
+  },
+
   handleSearchClick (e) {
     e.preventDefault();
 
+    let self = this;
     let options = {
-      location: this.refs.locationField.getLocation(),
-      startDate: this.refs.dateField.getStartDate(),
-      endDate: this.refs.dateField.getEndDate()
+      apikey: 'v7d862fcmbqnadw6ngxywrwx',
+      dest: this.refs.locationField.getLocation(),
+      startdate: this.refs.dateField.getStartDate(),
+      enddate: this.refs.dateField.getEndDate(),
+      pickuptime: '00:00',
+      dropofftime: '24:00'
     }
-
-    console.log("options", options);
+    
+    $.get(this.API_URL, options)
+      .then(function(xmlData) {
+	let parser = new X2Js();
+	let jsonData = parser.xml2js(xmlData.documentElement.innerHTML);
+	self.props.onSearchComplete(jsonData);
+      })
+      .fail(function(err) {
+	console.error("Error retrieving data: " + err.responseText);
+      });
   },
 
   render () {
