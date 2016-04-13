@@ -16,6 +16,7 @@ Start the server:
 
     npm start
 
+Point your browser at `localhost:9000` to load the application. Alternatively, you can edit the `start` script in `package.json` to specify a different port. Just change the `-p` option which is passed to `http-server`.
 
 ## Considerations ##
 
