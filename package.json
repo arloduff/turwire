@@ -4,18 +4,16 @@
   "description": "Search integration with HotWire cars.",
   "main": "index.html",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+    "test": "echo \"Error: no test specified\" && exit 1",
+     "start": "node node_modules/http-server/bin/http-server dist/ -p 9000 -P http://api.hotwire.com",
+    "clean": "rm -rf build && rm -rf dist"
+ },
   "keywords": [
     "car",
     "search"
   ],
   "author": "Arlo Duff",
   "license": "ISC",
-  "scripts": {
-    "start": "node node_modules/http-server/bin/http-server dist/ -p 9000 -P http://api.hotwire.com",
-    "clean": "rm -rf build && rm -rf dist"
-  },
   "babel": {
     "presets": ["es2015", "react"]
   },
