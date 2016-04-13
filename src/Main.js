@@ -5,9 +5,9 @@ import SearchResult from './SearchResult';
 export default React.createClass({
   getInitialState () {
     return {
-      displaySearchPane: true,
       searchResults: [],
-      searchError: null
+      searchError: null,
+      searchResultMessage: null
     };
   },
 
@@ -17,24 +17,23 @@ export default React.createClass({
     );
   },
 
-  displaySearchPane () {
-    this.setState({
-      displaySearchPane: true
-    });
-  },
-
-  displaySearchResults (jsonData) {
+  handleResponse (jsonData) {
     if(jsonData.Result) {
       this.setState({
-	displaySearchPane: false,
         searchResults: jsonData.Result.CarResult.map(this.dataToResultObject),
-	searchError: null
+	searchError: null,
+	searchResultMessage: null
       });
     } else if(jsonData.Errors) {
-      console.log("jsonData", jsonData);
       this.setState({
 	searchResults: [],
-	searchError: jsonData.Errors.Error.ErrorMessage
+	searchError: jsonData.Errors.Error.ErrorMessage,
+	searchResultMessage: null
+      });
+    } else if(jsonData.StatusDesc) {
+      this.setState({
+	searchError: null,
+        searchResultMessage: jsonData.StatusDesc
       });
     }
   },
@@ -42,21 +41,23 @@ export default React.createClass({
   render () {
     return(
       <div>
-	{ this.state.displaySearchPane &&
-	  <SearchForm onSearchComplete={this.displaySearchResults} />
-	}
-	{ !this.state.displaySearchPane &&
-	  <a onClick={this.displaySearchPane}>Refine search results</a>
-	}
-	{ this.state.searchResults.length > 0 &&
-	  this.state.searchResults
-	}
- 	{ !!this.state.searchError &&
-	  <div className="error">
-	    There was an error with your request:
-	    {this.state.searchError}
-	  </div>
-	}
+	<div className="search-pane">
+	  <SearchForm onSearchComplete={this.handleResponse} />
+	</div>
+	<div className="results-pane">
+	  { this.state.searchResults.length > 0 &&
+	    this.state.searchResults
+	  }
+	  { this.state.searchResultMessage !== null &&
+	    <div className="result-message">{this.state.searchResultMessage}</div>
+	  }
+ 	  { !!this.state.searchError &&
+	    <div className="error">
+	      There was an error with your request:
+	      {this.state.searchError}
+	    </div>
+	  }
+        </div>
       </div>
     );
   }

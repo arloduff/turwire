@@ -30,13 +30,13 @@ export default React.createClass({
     return(
       <div className="result">
 	<h2>{this.CAR_TYPES[result.CarTypeCode]}</h2>
-	<div>Daily rate: {result.DailyRate}</div>
 	<div>Mileage: {result.MileageDescription}</div>
 	<div>Pickup location: {result.LocationDescription}</div>
-	<div>Subtotal: {result.SubTotal}</div>
-	<div>Taxes and fees: {result.TaxesAndFees}</div>
-	<div>Total: {result.TotalPrice} {result.CurrencyCode}</div>
-	<a href={result.DeepLink}>Reserve</a>
+	<div>Daily rate: ${result.DailyRate}</div>
+	<div>Subtotal: ${result.SubTotal}</div>
+	<div>Taxes and fees: ${result.TaxesAndFees}</div>
+	<div>Total: ${result.TotalPrice} {result.CurrencyCode}</div>
+	<a href={result.DeepLink} target="_blank">Reserve</a>
       </div>
     );
   }

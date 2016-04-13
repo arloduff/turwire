@@ -4,17 +4,41 @@
 body
   font-family: Arial
 
-#search-form
-  label
-    font-weight: bold
-  .location-field
-    width: 50%
-  .time-selector
-    width: 25%
+.search-pane
+  width: 48%;
+  float: left
 
-.error
-  color: #f00
-  font-size: 80%
+  #search-form
+    label
+      font-weight: bold
+    .location-field
+      width: 50%
+    .time-selector
+      width: 40%
+    .error
+      color: #f00
+      font-size: 80%
+
+
+.results-pane
+  width: 48%
+  height: 100%
+  float: left
+  overflow: auto
+  .result
+    h2
+      font-size: 110%;
+      font-weight: strong;
+      text-decoration: underline
+  .result-message
+    margin: 2em
+    border: solid 1px #090
+    color: #606060
+  .error
+    margin: 2em
+    border: solid 1px #f00
+    color: #606060
+
 .result
   margin: 2em
 

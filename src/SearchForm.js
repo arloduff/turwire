@@ -14,6 +14,10 @@ export default React.createClass({
   handleSearchClick (e) {
     e.preventDefault();
 
+    if(!this.refs.locationField.validate()) {
+      return;
+    }
+
     let self = this;
     let options = {
       apikey: 'v7d862fcmbqnadw6ngxywrwx',
