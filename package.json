@@ -7,7 +7,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
      "start": "node node_modules/http-server/bin/http-server dist/ -p 9000 -P http://api.hotwire.com",
-    "clean": "rm -rf build && rm -rf dist"
+     "compile": "node node_modules/grunt-cli/bin/grunt",
+     "clean": "rm -rf build && rm -rf dist"
  },
   "keywords": [
     "car",
@@ -39,11 +40,12 @@
     "react-datepicker": "~0.25.0",
     "moment": "latest",
     "jquery": "~2.2.3",
-    "x2js": "`0.2.0",
+    "x2js": "~2.0.0",
     "xmldom": "^0.1.19"
   },
   "devDependencies": {
      "grunt": ">=0.4.2",
+     "grunt-cli": "~1.2.0", 
      "grunt-contrib-copy": "~1.0.0",
      "grunt-contrib-uglify": "latest",
      "grunt-contrib-cssmin": "~1.0.1",

@@ -1,19 +1,18 @@
 # Turwire #
 
-Frontend React API for displaying results from the Hotwire Rental Car Shopping API http://developer.hotwire.com/docs/read/Rental_Car_Shopping_API
+Frontend React API for displaying results from the [Hotwire Rental Car Shopping API](http://developer.hotwire.com/docs/read/Rental_Car_Shopping_API)
 
 ## Installation  ##
 
 Install the dependencies:
 
     npm install
-    npm install -g grunt
 
 Build the project:
 
-    grunt
+    npm run compile
 
-Run the build:
+Start the server:
 
     npm start
 
@@ -37,7 +36,8 @@ For the development environment, additional technologies used are:
  * SASS
  * http-server
 
-For this project, I have chosen to follow the pattern of requiring npm modules and bundling them together as one minified file which is provided to the user. I have chosen this method because of the safety over relying on an external CDN, which may sometimes go down unexpectedly, as well as for the code readability which comes with having to require modules before using them, rather than simply referring to them in the global namespace. Of course, when requiring external libraries such as these in a large project, this can easily bloat the minified file, in which case using a CDN may be preferable.
+For this project, I have taken the approach of requiring local modules and bundling them together as one minified file which is provided to the user. I have chosen this method because of the safety over relying on an external CDN, which may sometimes go down unexpectedly, as well as for the code readability which comes with having to require modules before using them, rather than simply referring to them in the global namespace. Of course, when requiring external libraries such as these in a large project, this can easily bloat the minified file, in which case using a CDN may be preferable.
 
 To this end, I have used Grunt to handle the building of the project, together with Babel to transpile the code from React/ES6 into standard ES5 code which is minified and delivered to the client's computer on page load. http-server is used to deliver the code to the client's computer, and also to get around the CORS limitations of the Hotwire API.
 
+I have used SASS for this project because of the ease of use in nesting CSS rules.
