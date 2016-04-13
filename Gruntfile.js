@@ -15,7 +15,7 @@ module.exports = function (grunt) {
     },
     copy: {
       main: {
-	cwd: 'src',
+	cwd: 'src/html',
 	src: '*.html',
 	dest: 'dist/',
 	expand: true
@@ -42,7 +42,7 @@ module.exports = function (grunt) {
     },
     browserify: {
       dist: {
-	src: ['src/*.js'],
+	src: ['src/js/*.js'],
 	dest: 'build/<%= pkg.name %>.js'
      }
     },
@@ -55,7 +55,7 @@ module.exports = function (grunt) {
      sass: {
       dist: {
 	files: {
-	  'build/<%= pkg.name %>.css': 'src/app.sass'
+	  'build/<%= pkg.name %>.css': 'src/sass/app.sass'
 	}
       }
     },
