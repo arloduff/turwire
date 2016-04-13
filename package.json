@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Search integration with HotWire cars.",
   "main": "index.html",
+  "repository": "https://github.com/arloduff/turwire",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
      "start": "node node_modules/http-server/bin/http-server dist/ -p 9000 -P http://api.hotwire.com",
